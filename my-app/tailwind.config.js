@@ -10,7 +10,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#005B86",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
         secondary: "#F59E0B",
         accent: "#10B981",
         border: "var(--border)",
@@ -51,6 +54,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      gridTemplateColumns: {
+        'auto-fit-cards': 'repeat(auto-fit, minmax(298px, 1fr))',
+      }
     },
   },
   plugins: [

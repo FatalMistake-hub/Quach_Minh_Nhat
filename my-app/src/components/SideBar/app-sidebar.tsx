@@ -1,18 +1,17 @@
 import {
-    BookOpen,
-    Bot,
-    Command,
+    BookOpenText,
+    Building,
+    Calculator,
+    CircleHelp,
     Frame,
-    LifeBuoy,
+    LayoutDashboard,
     Map,
     PieChart,
-    Send,
-    Settings2,
-    SquareTerminal,
+    SquarePen,
 } from "lucide-react";
 import * as React from "react";
 
-import { NavUser } from "@/components/nav-user";
+import { NavUser } from "@/components/SideBar/nav-user";
 import {
     Sidebar,
     SidebarContent,
@@ -22,8 +21,8 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { NavSecondary } from "./nav-secondary";
 import { NavMain } from "./nav-main";
+import { NavSecondary } from "./nav-secondary";
 
 const data = {
     user: {
@@ -33,101 +32,37 @@ const data = {
     },
     navMain: [
         {
-            title: "Playground",
+            title: "Overview",
             url: "#",
-            icon: SquareTerminal,
+            icon: LayoutDashboard,
             isActive: true,
-            items: [
-                {
-                    title: "History",
-                    url: "#",
-                },
-                {
-                    title: "Starred",
-                    url: "#",
-                },
-                {
-                    title: "Settings",
-                    url: "#",
-                },
-            ],
         },
         {
-            title: "Models",
+            title: "Inquiries",
             url: "#",
-            icon: Bot,
-            items: [
-                {
-                    title: "Genesis",
-                    url: "#",
-                },
-                {
-                    title: "Explorer",
-                    url: "#",
-                },
-                {
-                    title: "Quantum",
-                    url: "#",
-                },
-            ],
+            icon: CircleHelp,
         },
         {
-            title: "Documentation",
-            url: "#",
-            icon: BookOpen,
-            items: [
-                {
-                    title: "Introduction",
-                    url: "#",
-                },
-                {
-                    title: "Get Started",
-                    url: "#",
-                },
-                {
-                    title: "Tutorials",
-                    url: "#",
-                },
-                {
-                    title: "Changelog",
-                    url: "#",
-                },
-            ],
+            title: "Estimator",
+            url: "/A1/II",
+            icon: Calculator,
         },
         {
-            title: "Settings",
-            url: "#",
-            icon: Settings2,
-            items: [
-                {
-                    title: "General",
-                    url: "#",
-                },
-                {
-                    title: "Team",
-                    url: "#",
-                },
-                {
-                    title: "Billing",
-                    url: "#",
-                },
-                {
-                    title: "Limits",
-                    url: "#",
-                },
-            ],
+            title: "Projects",
+            url: "/A1/I",
+            icon: SquarePen,
         },
     ],
     navSecondary: [
         {
-            title: "Support",
+            title: "Administrations",
             url: "#",
-            icon: LifeBuoy,
+            icon: Building,
         },
         {
-            title: "Feedback",
+            title: "Documentation",
             url: "#",
-            icon: Send,
+            icon: BookOpenText,
         },
     ],
     projects: [
@@ -169,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                     <span className="truncate text-xl font-semibold">
                                         ABC Company
                                     </span>
-                                    <span className="truncate text-base font-normal">
+                                    <span className="text-primary truncate text-base font-normal">
                                         Lisa Rose
                                     </span>
                                 </div>

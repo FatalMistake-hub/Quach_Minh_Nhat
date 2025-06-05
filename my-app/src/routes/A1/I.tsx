@@ -1,7 +1,7 @@
-import PageA1 from "@/pages/a1";
+import PageA1 from "@/pages/A1/I";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/A1")({
+export const Route = createFileRoute("/A1/I")({
     component: A1,
 });
 

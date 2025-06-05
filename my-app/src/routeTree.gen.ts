@@ -13,8 +13,10 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as A3Import } from './routes/A3'
 import { Route as A2Import } from './routes/A2'
-import { Route as A1Import } from './routes/A1'
 import { Route as IndexImport } from './routes/index'
+import { Route as A1IIIImport } from './routes/A1/III'
+import { Route as A1IIImport } from './routes/A1/II'
+import { Route as A1IImport } from './routes/A1/I'
 
 // Create/Update Routes
 
@@ -30,15 +32,27 @@ const A2Route = A2Import.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const A1Route = A1Import.update({
-  id: '/A1',
-  path: '/A1',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const A1IIIRoute = A1IIIImport.update({
+  id: '/A1/III',
+  path: '/A1/III',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const A1IIRoute = A1IIImport.update({
+  id: '/A1/II',
+  path: '/A1/II',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const A1IRoute = A1IImport.update({
+  id: '/A1/I',
+  path: '/A1/I',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -51,13 +65,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/A1': {
-      id: '/A1'
-      path: '/A1'
-      fullPath: '/A1'
-      preLoaderRoute: typeof A1Import
       parentRoute: typeof rootRoute
     }
     '/A2': {
@@ -74,6 +81,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof A3Import
       parentRoute: typeof rootRoute
     }
+    '/A1/I': {
+      id: '/A1/I'
+      path: '/A1/I'
+      fullPath: '/A1/I'
+      preLoaderRoute: typeof A1IImport
+      parentRoute: typeof rootRoute
+    }
+    '/A1/II': {
+      id: '/A1/II'
+      path: '/A1/II'
+      fullPath: '/A1/II'
+      preLoaderRoute: typeof A1IIImport
+      parentRoute: typeof rootRoute
+    }
+    '/A1/III': {
+      id: '/A1/III'
+      path: '/A1/III'
+      fullPath: '/A1/III'
+      preLoaderRoute: typeof A1IIIImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -81,47 +109,57 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/A1': typeof A1Route
   '/A2': typeof A2Route
   '/A3': typeof A3Route
+  '/A1/I': typeof A1IRoute
+  '/A1/II': typeof A1IIRoute
+  '/A1/III': typeof A1IIIRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/A1': typeof A1Route
   '/A2': typeof A2Route
   '/A3': typeof A3Route
+  '/A1/I': typeof A1IRoute
+  '/A1/II': typeof A1IIRoute
+  '/A1/III': typeof A1IIIRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/A1': typeof A1Route
   '/A2': typeof A2Route
   '/A3': typeof A3Route
+  '/A1/I': typeof A1IRoute
+  '/A1/II': typeof A1IIRoute
+  '/A1/III': typeof A1IIIRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/A1' | '/A2' | '/A3'
+  fullPaths: '/' | '/A2' | '/A3' | '/A1/I' | '/A1/II' | '/A1/III'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/A1' | '/A2' | '/A3'
-  id: '__root__' | '/' | '/A1' | '/A2' | '/A3'
+  to: '/' | '/A2' | '/A3' | '/A1/I' | '/A1/II' | '/A1/III'
+  id: '__root__' | '/' | '/A2' | '/A3' | '/A1/I' | '/A1/II' | '/A1/III'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  A1Route: typeof A1Route
   A2Route: typeof A2Route
   A3Route: typeof A3Route
+  A1IRoute: typeof A1IRoute
+  A1IIRoute: typeof A1IIRoute
+  A1IIIRoute: typeof A1IIIRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  A1Route: A1Route,
   A2Route: A2Route,
   A3Route: A3Route,
+  A1IRoute: A1IRoute,
+  A1IIRoute: A1IIRoute,
+  A1IIIRoute: A1IIIRoute,
 }
 
 export const routeTree = rootRoute
@@ -135,22 +173,30 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/A1",
         "/A2",
-        "/A3"
+        "/A3",
+        "/A1/I",
+        "/A1/II",
+        "/A1/III"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/A1": {
-      "filePath": "A1.tsx"
     },
     "/A2": {
       "filePath": "A2.tsx"
     },
     "/A3": {
       "filePath": "A3.tsx"
+    },
+    "/A1/I": {
+      "filePath": "A1/I.tsx"
+    },
+    "/A1/II": {
+      "filePath": "A1/II.tsx"
+    },
+    "/A1/III": {
+      "filePath": "A1/III.tsx"
     }
   }
 }
