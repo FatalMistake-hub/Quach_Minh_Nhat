@@ -1,5 +1,5 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
-import { Home, HomeIcon } from "lucide-react";
+import { Home } from "lucide-react";
 
 export const Route = createFileRoute("/app")({
     component: RouteComponent,

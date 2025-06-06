@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
     SidebarInput,
@@ -20,9 +19,7 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ArrowRight, ChevronRight, Menu, MenuIcon, Search } from "lucide-react";
 
-type Props = {};
-
-const PageA1II = (props: Props) => {
+const PageA1II = () => {
     return (
         <SidebarProvider>
             <AppSidebar />

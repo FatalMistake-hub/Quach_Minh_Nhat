@@ -97,14 +97,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         >
                             <a href="#" className="gap-4">
                                 <div className="text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-lg">
-                                    {/* <Command className="size-4" /> */}
                                     <img
-                                        src="/public/b8a5d69f3c86873d84374208c1a9cd636984f521.jpg"
-                                        alt=""
-                                        className="object-cover size-12"
+                                        src="/b8a5d69f3c86873d84374208c1a9cd636984f521.jpg"
+                                        alt="Company Avatar"
+                                        className="object-cover size-8 group-data-[collapsible=icon]:size-6  transition-all duration-200"
                                     />
                                 </div>
-                                <div className="grid text-primary flex-1 text-left text-sm leading-tight">
+                                <div className="grid text-primary flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
                                     <span className="truncate text-xl font-semibold">
                                         ABC Company
                                     </span>
@@ -125,7 +124,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </div>
             </SidebarContent>
             <SidebarFooter>
-                <NavUser user={data.user} />
+                <NavUser />
             </SidebarFooter>
         </Sidebar>
     );

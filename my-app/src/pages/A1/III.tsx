@@ -25,9 +25,7 @@ import { Separator } from "@/components/ui/separator";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -51,7 +49,6 @@ import {
     Settings,
 } from "lucide-react";
 
-type Props = {};
 const data = [
     {
         name: "Mr. David Nguyen",
@@ -122,7 +119,7 @@ const data1 = [
         status: "IN PROGRESS",
     },
 ];
-const PageA1III = (props: Props) => {
+const PageA1III = () => {
     return (
         <div className="[--header-height:calc(--spacing(14))]">
             <div className="flex flex-col text-gray-600 min-h-screen">
@@ -486,12 +483,12 @@ const PageA1III = (props: Props) => {
                                         </TableCell>
                                         <TableCell className="text-left ">
                                             <div className="flex items-center">
-                                              <Progress
-                                                  color="#294172"
-                                                  value={invoice.progress}
-                                                  className="mr-2 mb-2 "
-                                              />{" "}
-                                              <span>{invoice.progress}%</span>
+                                                <Progress
+                                                    color="#294172"
+                                                    value={invoice.progress}
+                                                    className="mr-2 mb-2 "
+                                                />{" "}
+                                                <span>{invoice.progress}%</span>
                                             </div>
                                         </TableCell>
                                         <TableCell className="text-left">

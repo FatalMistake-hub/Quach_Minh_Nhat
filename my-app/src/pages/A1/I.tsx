@@ -1,23 +1,22 @@
 import { AppSidebar } from "@/components/SideBar/app-sidebar";
 import {
     Breadcrumb,
-    BreadcrumbList,
     BreadcrumbItem,
     BreadcrumbLink,
-    BreadcrumbSeparator,
+    BreadcrumbList,
     BreadcrumbPage,
+    BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
-    SidebarProvider,
     SidebarInset,
+    SidebarProvider,
     SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
 import { ArrowUp, ChevronDown, ChevronRight, DessertIcon } from "lucide-react";
 
-type Props = {};
 
-const PageA1I = (props: Props) => {
+const PageA1I = () => {
     return (
         <div className="text-gray-600">
             <SidebarProvider>
@@ -63,21 +62,21 @@ const PageA1I = (props: Props) => {
                                 <li>
                                     <span>
                                         Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Impedit magni at quisquam
-                                        nostrum assumenda laudantium, voluptatum
-                                        magnam ad qui aspernatur aliquam velit et
-                                        expedita eum excepturi nobis recusandae ea
-                                        perspiciatis!
+                                        adipisicing elit. Impedit magni at
+                                        quisquam nostrum assumenda laudantium,
+                                        voluptatum magnam ad qui aspernatur
+                                        aliquam velit et expedita eum excepturi
+                                        nobis recusandae ea perspiciatis!
                                     </span>
                                 </li>
                                 <li>
                                     <span>
                                         Lorem ipsum dolor sit amet consectetur
                                         adipisicing elit. Aperiam quod aliquid
-                                        provident animi similique perspiciatis quis
-                                        iusto quo itaque dolorem! Facilis sint
-                                        similique veritatis officiis cum id vitae
-                                        sequi consequatur?
+                                        provident animi similique perspiciatis
+                                        quis iusto quo itaque dolorem! Facilis
+                                        sint similique veritatis officiis cum id
+                                        vitae sequi consequatur?
                                     </span>
                                 </li>
                             </ul>
@@ -87,7 +86,7 @@ const PageA1I = (props: Props) => {
                                 Activity{" "}
                             </span>
                             <Separator className="" />
-    
+
                             <div>
                                 <div className="mt-6">
                                     <ol className="relative border-s border-gray-200">
@@ -133,7 +132,7 @@ const PageA1I = (props: Props) => {
                                 </div>
                             </div>
                         </div>
-    
+
                         <div className="col-span-1 border-l-2 border-l-gray-200 max-sm:border-l-0 max-sm:col-span-1 flex flex-col">
                             <div className="flex items-center justify-between p-4">
                                 <span className="text-xl font-semibold">
@@ -173,10 +172,14 @@ const PageA1I = (props: Props) => {
                                     },
                                 ].map((item, index) => (
                                     <div key={index} className="flex p-4">
-                                        <span className="flex-1">{item.label}</span>
+                                        <span className="flex-1">
+                                            {item.label}
+                                        </span>
                                         <div className="flex-1">
                                             <ChevronDown className="inline-block mr-2 size-4" />
-                                            <span className={item.className || ""}>
+                                            <span
+                                                className={item.className || ""}
+                                            >
                                                 {item.value}
                                             </span>
                                         </div>

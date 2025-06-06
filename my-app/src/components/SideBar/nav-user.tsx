@@ -1,43 +1,14 @@
 "use client";
 
-import {
-    BadgeCheck,
-    Bell,
-    ChevronsUpDown,
-    CreditCard,
-    ExternalLinkIcon,
-    LogOut,
-    Sparkles,
-} from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-    useSidebar,
 } from "@/components/ui/sidebar";
 
-export function NavUser({
-    user,
-}: {
-    user: {
-        name: string;
-        email: string;
-        avatar: string;
-    };
-}) {
-    const { isMobile } = useSidebar();
-
+export function NavUser() {
     return (
         <SidebarMenu>
             <SidebarMenuItem>
@@ -48,15 +19,15 @@ export function NavUser({
                     <img
                         src="/LOGO small.png"
                         alt="logo"
-                        className="h-8 w-auto group-data-[collapsible=icon]:block hidden"
+                        className="h-6 w-auto group-data-[collapsible=icon]:block hidden transition-all duration-200"
                     />
                     <img
                         src="/LOGO (Light mode).png"
                         alt="logo"
-                        className="h-8 w-auto group-data-[collapsible=icon]:hidden block"
+                        className="h-8 w-auto group-data-[collapsible=icon]:hidden block transition-all duration-200"
                     />
-                    <div className="text-[#005A86] ml-auto">
-                        <ExternalLinkIcon className="  size-4.5 group-data-[collapsible=icon]:hidden" />
+                    <div className="text-[#005A86] ml-auto group-data-[collapsible=icon]:hidden">
+                        <ExternalLinkIcon className="size-4 transition-all duration-200" />
                     </div>
                 </SidebarMenuButton>
             </SidebarMenuItem>

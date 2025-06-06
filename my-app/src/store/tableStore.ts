@@ -1,5 +1,5 @@
-import { atom, map } from "nanostores";
 import type { TableState } from "@/types";
+import { map } from "nanostores";
 
 const defaultTableState: TableState = {
     sorting: [],
