@@ -18,7 +18,7 @@ import {
     SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { ChevronRight, Search } from "lucide-react";
+import { ArrowRight, ChevronRight, Menu, MenuIcon, Search } from "lucide-react";
 
 type Props = {};
 
@@ -26,43 +26,53 @@ const PageA1II = (props: Props) => {
     return (
         <SidebarProvider>
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset className="min-h-full">
                 <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-                    <div className="flex items-center gap-2 px-4">
-                        <SidebarTrigger className="-ml-1" />
-                        <Separator
-                            orientation="vertical"
-                            className="mr-2 data-[orientation=vertical]:h-4"
-                        />
-                        <Breadcrumb>
-                            <BreadcrumbList>
-                                <BreadcrumbItem className="hidden md:block">
-                                    <BreadcrumbLink href="#">
-                                        Building Your Application
-                                    </BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage>
-                                        Data Fetching
-                                    </BreadcrumbPage>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage>A1.II</BreadcrumbPage>
-                                </BreadcrumbItem>
-                            </BreadcrumbList>
-                        </Breadcrumb>
+                    <div className="flex justify-between w-full items-center px-4">
+                        <div className="flex items-center gap-2">
+                            <SidebarTrigger className="-ml-1" />
+                            <Separator
+                                orientation="vertical"
+                                className="mr-2 data-[orientation=vertical]:h-4"
+                            />
+                            <Breadcrumb>
+                                <BreadcrumbList>
+                                    <BreadcrumbItem className="hidden md:block">
+                                        <BreadcrumbLink href="#">
+                                            Building Your Application
+                                        </BreadcrumbLink>
+                                    </BreadcrumbItem>
+                                    <BreadcrumbSeparator className="hidden md:block" />
+                                    <BreadcrumbItem>
+                                        <BreadcrumbPage>
+                                            Data Fetching
+                                        </BreadcrumbPage>
+                                    </BreadcrumbItem>
+                                    <BreadcrumbSeparator className="hidden md:block" />
+                                    <BreadcrumbItem>
+                                        <BreadcrumbPage>A1.II</BreadcrumbPage>
+                                    </BreadcrumbItem>
+                                </BreadcrumbList>
+                            </Breadcrumb>
+                        </div>
+                        <Button
+                            variant="default"
+                            size="sm"
+                            className="text-xs bg-[#005B86] text-white   hover:bg-gray-50 hover:cursor-pointer rounded-4xl"
+                        >
+                            {" "}
+                            <Menu className="mr-1" /> View Summary
+                        </Button>
                     </div>
                 </header>
                 <Separator className="" />{" "}
-                <div className="flex flex-col px-16 py-4">
+                <div className="flex flex-col h-full px-16 py-4">
                     <span className="text-xl font-medium mb-[38px]">
                         Work Packages (WP)
                     </span>
-                    <div className="grid grid-cols-5 max-sm:grid-cols-1 gap-4 ">
-                        <div className="col-span-1  flex flex-col  ">
-                            <div className="flex flex-col justify-between">
+                    <div className="grid grid-cols-5 relative h-full max-sm:grid-cols-1 gap-4 ">
+                        <div className="col-span-1 h-full flex flex-col  ">
+                            <div className="flex flex-col h-full justify-between">
                                 <div className="flex flex-col gap-[23px]">
                                     <div className="">
                                         <ToggleGroup
@@ -88,7 +98,7 @@ const PageA1II = (props: Props) => {
                                             </ToggleGroupItem>
                                         </ToggleGroup>
                                     </div>
-                                    <div>
+                                    <div className="text-gray-600">
                                         <p className="mb-2.5 font-medium text-lg leading-relaxed">
                                             Categories
                                         </p>
@@ -122,10 +132,16 @@ const PageA1II = (props: Props) => {
                                         <Separator className="mb-1" />
                                     </div>
                                 </div>
+                                <div className="flex items-center text-[#005A86]">
+                                    <MenuIcon className="size-3 mr-0.5" />
+                                    <span className="font-medium italic text-sm leading-normal tracking-normal align-middle">
+                                        How to add custom WPs
+                                    </span>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="col-span-4 flex flex-col">
+                        <div className="col-span-4 h-full flex flex-col">
                             <div className="relative max-w-full">
                                 <SidebarInput
                                     id="search"
@@ -186,6 +202,14 @@ const PageA1II = (props: Props) => {
                                 ))}
                             </div>
                         </div>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="absolute bottom-0 right-0 text-xs border-[#005B86] text-[#005B86]   hover:bg-gray-50 hover:cursor-pointer"
+                        >
+                            {" "}
+                            Next <ArrowRight />
+                        </Button>
                     </div>
                 </div>
             </SidebarInset>

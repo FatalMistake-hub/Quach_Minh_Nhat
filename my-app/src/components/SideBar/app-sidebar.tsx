@@ -86,11 +86,15 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
-        <Sidebar variant="inset" {...props}>
+        <Sidebar collapsible="icon" variant="inset" {...props}>
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
+                        <SidebarMenuButton
+                            className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                            size="lg"
+                            asChild
+                        >
                             <a href="#" className="gap-4">
                                 <div className="text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-lg">
                                     {/* <Command className="size-4" /> */}
@@ -114,9 +118,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenu>
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
-                {/* <NavProjects projects={data.projects} /> */}
-                <NavSecondary items={data.navSecondary} />
+                <div className="flex flex-col justify-between h-full">
+                    <NavMain items={data.navMain} />
+                    {/* <NavProjects projects={data.projects} /> */}
+                    <NavSecondary items={data.navSecondary} />
+                </div>
             </SidebarContent>
             <SidebarFooter>
                 <NavUser user={data.user} />

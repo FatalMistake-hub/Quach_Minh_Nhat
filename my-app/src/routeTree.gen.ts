@@ -11,24 +11,19 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as A3Import } from './routes/A3'
-import { Route as A2Import } from './routes/A2'
+import { Route as AppImport } from './routes/app'
 import { Route as IndexImport } from './routes/index'
-import { Route as A1IIIImport } from './routes/A1/III'
-import { Route as A1IIImport } from './routes/A1/II'
-import { Route as A1IImport } from './routes/A1/I'
+import { Route as AppA3Import } from './routes/app.A3'
+import { Route as AppA2Import } from './routes/app.A2'
+import { Route as AppA1IIIImport } from './routes/app.A1/III'
+import { Route as AppA1IIImport } from './routes/app.A1/II'
+import { Route as AppA1IImport } from './routes/app.A1/I'
 
 // Create/Update Routes
 
-const A3Route = A3Import.update({
-  id: '/A3',
-  path: '/A3',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const A2Route = A2Import.update({
-  id: '/A2',
-  path: '/A2',
+const AppRoute = AppImport.update({
+  id: '/app',
+  path: '/app',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -38,22 +33,34 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const A1IIIRoute = A1IIIImport.update({
+const AppA3Route = AppA3Import.update({
+  id: '/A3',
+  path: '/A3',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppA2Route = AppA2Import.update({
+  id: '/A2',
+  path: '/A2',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppA1IIIRoute = AppA1IIIImport.update({
   id: '/A1/III',
   path: '/A1/III',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => AppRoute,
 } as any)
 
-const A1IIRoute = A1IIImport.update({
+const AppA1IIRoute = AppA1IIImport.update({
   id: '/A1/II',
   path: '/A1/II',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => AppRoute,
 } as any)
 
-const A1IRoute = A1IImport.update({
+const AppA1IRoute = AppA1IImport.update({
   id: '/A1/I',
   path: '/A1/I',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => AppRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -67,99 +74,141 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/A2': {
-      id: '/A2'
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppImport
+      parentRoute: typeof rootRoute
+    }
+    '/app/A2': {
+      id: '/app/A2'
       path: '/A2'
-      fullPath: '/A2'
-      preLoaderRoute: typeof A2Import
-      parentRoute: typeof rootRoute
+      fullPath: '/app/A2'
+      preLoaderRoute: typeof AppA2Import
+      parentRoute: typeof AppImport
     }
-    '/A3': {
-      id: '/A3'
+    '/app/A3': {
+      id: '/app/A3'
       path: '/A3'
-      fullPath: '/A3'
-      preLoaderRoute: typeof A3Import
-      parentRoute: typeof rootRoute
+      fullPath: '/app/A3'
+      preLoaderRoute: typeof AppA3Import
+      parentRoute: typeof AppImport
     }
-    '/A1/I': {
-      id: '/A1/I'
+    '/app/A1/I': {
+      id: '/app/A1/I'
       path: '/A1/I'
-      fullPath: '/A1/I'
-      preLoaderRoute: typeof A1IImport
-      parentRoute: typeof rootRoute
+      fullPath: '/app/A1/I'
+      preLoaderRoute: typeof AppA1IImport
+      parentRoute: typeof AppImport
     }
-    '/A1/II': {
-      id: '/A1/II'
+    '/app/A1/II': {
+      id: '/app/A1/II'
       path: '/A1/II'
-      fullPath: '/A1/II'
-      preLoaderRoute: typeof A1IIImport
-      parentRoute: typeof rootRoute
+      fullPath: '/app/A1/II'
+      preLoaderRoute: typeof AppA1IIImport
+      parentRoute: typeof AppImport
     }
-    '/A1/III': {
-      id: '/A1/III'
+    '/app/A1/III': {
+      id: '/app/A1/III'
       path: '/A1/III'
-      fullPath: '/A1/III'
-      preLoaderRoute: typeof A1IIIImport
-      parentRoute: typeof rootRoute
+      fullPath: '/app/A1/III'
+      preLoaderRoute: typeof AppA1IIIImport
+      parentRoute: typeof AppImport
     }
   }
 }
 
 // Create and export the route tree
 
+interface AppRouteChildren {
+  AppA2Route: typeof AppA2Route
+  AppA3Route: typeof AppA3Route
+  AppA1IRoute: typeof AppA1IRoute
+  AppA1IIRoute: typeof AppA1IIRoute
+  AppA1IIIRoute: typeof AppA1IIIRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppA2Route: AppA2Route,
+  AppA3Route: AppA3Route,
+  AppA1IRoute: AppA1IRoute,
+  AppA1IIRoute: AppA1IIRoute,
+  AppA1IIIRoute: AppA1IIIRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/A2': typeof A2Route
-  '/A3': typeof A3Route
-  '/A1/I': typeof A1IRoute
-  '/A1/II': typeof A1IIRoute
-  '/A1/III': typeof A1IIIRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/A2': typeof AppA2Route
+  '/app/A3': typeof AppA3Route
+  '/app/A1/I': typeof AppA1IRoute
+  '/app/A1/II': typeof AppA1IIRoute
+  '/app/A1/III': typeof AppA1IIIRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/A2': typeof A2Route
-  '/A3': typeof A3Route
-  '/A1/I': typeof A1IRoute
-  '/A1/II': typeof A1IIRoute
-  '/A1/III': typeof A1IIIRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/A2': typeof AppA2Route
+  '/app/A3': typeof AppA3Route
+  '/app/A1/I': typeof AppA1IRoute
+  '/app/A1/II': typeof AppA1IIRoute
+  '/app/A1/III': typeof AppA1IIIRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/A2': typeof A2Route
-  '/A3': typeof A3Route
-  '/A1/I': typeof A1IRoute
-  '/A1/II': typeof A1IIRoute
-  '/A1/III': typeof A1IIIRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/A2': typeof AppA2Route
+  '/app/A3': typeof AppA3Route
+  '/app/A1/I': typeof AppA1IRoute
+  '/app/A1/II': typeof AppA1IIRoute
+  '/app/A1/III': typeof AppA1IIIRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/A2' | '/A3' | '/A1/I' | '/A1/II' | '/A1/III'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/A2'
+    | '/app/A3'
+    | '/app/A1/I'
+    | '/app/A1/II'
+    | '/app/A1/III'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/A2' | '/A3' | '/A1/I' | '/A1/II' | '/A1/III'
-  id: '__root__' | '/' | '/A2' | '/A3' | '/A1/I' | '/A1/II' | '/A1/III'
+  to:
+    | '/'
+    | '/app'
+    | '/app/A2'
+    | '/app/A3'
+    | '/app/A1/I'
+    | '/app/A1/II'
+    | '/app/A1/III'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/A2'
+    | '/app/A3'
+    | '/app/A1/I'
+    | '/app/A1/II'
+    | '/app/A1/III'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  A2Route: typeof A2Route
-  A3Route: typeof A3Route
-  A1IRoute: typeof A1IRoute
-  A1IIRoute: typeof A1IIRoute
-  A1IIIRoute: typeof A1IIIRoute
+  AppRoute: typeof AppRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  A2Route: A2Route,
-  A3Route: A3Route,
-  A1IRoute: A1IRoute,
-  A1IIRoute: A1IIRoute,
-  A1IIIRoute: A1IIIRoute,
+  AppRoute: AppRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -173,30 +222,41 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/A2",
-        "/A3",
-        "/A1/I",
-        "/A1/II",
-        "/A1/III"
+        "/app"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/A2": {
-      "filePath": "A2.tsx"
+    "/app": {
+      "filePath": "app.tsx",
+      "children": [
+        "/app/A2",
+        "/app/A3",
+        "/app/A1/I",
+        "/app/A1/II",
+        "/app/A1/III"
+      ]
     },
-    "/A3": {
-      "filePath": "A3.tsx"
+    "/app/A2": {
+      "filePath": "app.A2.tsx",
+      "parent": "/app"
     },
-    "/A1/I": {
-      "filePath": "A1/I.tsx"
+    "/app/A3": {
+      "filePath": "app.A3.tsx",
+      "parent": "/app"
     },
-    "/A1/II": {
-      "filePath": "A1/II.tsx"
+    "/app/A1/I": {
+      "filePath": "app.A1/I.tsx",
+      "parent": "/app"
     },
-    "/A1/III": {
-      "filePath": "A1/III.tsx"
+    "/app/A1/II": {
+      "filePath": "app.A1/II.tsx",
+      "parent": "/app"
+    },
+    "/app/A1/III": {
+      "filePath": "app.A1/III.tsx",
+      "parent": "/app"
     }
   }
 }
