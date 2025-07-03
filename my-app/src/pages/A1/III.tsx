@@ -175,7 +175,12 @@ const PageA1III = () => {
                             </div>
                             <Separator className="" />
                             <div className="grid w-full max-w-sm items-center gap-3">
-                                <Label htmlFor="picture">User Name</Label>
+                                <Label
+                                    className="font-semibold text-[#111928]"
+                                    htmlFor="picture"
+                                >
+                                    User Name
+                                </Label>
                                 <Select>
                                     <SelectTrigger className="w-full">
                                         <SelectValue placeholder="Select" />
@@ -183,11 +188,21 @@ const PageA1III = () => {
                                 </Select>
                             </div>
                             <div className="grid w-full max-w-sm items-center gap-3">
-                                <Label htmlFor="picture">User ID</Label>
+                                <Label
+                                    className="font-semibold text-[#111928]"
+                                    htmlFor="picture"
+                                >
+                                    User ID
+                                </Label>
                                 <Input id="picture" type="Input" />
                             </div>
                             <div className="grid w-full max-w-sm items-center gap-3">
-                                <Label htmlFor="picture">User type</Label>
+                                <Label
+                                    className="font-semibold text-[#111928]"
+                                    htmlFor="picture"
+                                >
+                                    User type
+                                </Label>
                                 <Select>
                                     <SelectTrigger className="w-full">
                                         <SelectValue placeholder="Select" />
@@ -195,15 +210,30 @@ const PageA1III = () => {
                                 </Select>
                             </div>
                             <div className="grid w-full max-w-sm items-center gap-3">
-                                <Label htmlFor="picture">Phone number</Label>
+                                <Label
+                                    className="font-semibold text-[#111928]"
+                                    htmlFor="picture"
+                                >
+                                    Phone number
+                                </Label>
                                 <Input id="picture" type="text" />
                             </div>
                             <div className="grid w-full max-w-sm items-center gap-3">
-                                <Label htmlFor="picture">Email address</Label>
+                                <Label
+                                    className="font-semibold text-[#111928]"
+                                    htmlFor="picture"
+                                >
+                                    Email address
+                                </Label>
                                 <Input id="picture" type="Input" />
                             </div>
                             <div className="grid w-full max-w-sm items-center gap-3">
-                                <Label htmlFor="picture">Status</Label>
+                                <Label
+                                    className="font-semibold text-[#111928]"
+                                    htmlFor="picture"
+                                >
+                                    Status
+                                </Label>
                                 <div className="flex items-center gap-3">
                                     <Checkbox id="terms" />
                                     <Label htmlFor="terms">All</Label>
@@ -274,7 +304,7 @@ const PageA1III = () => {
                                                     />
                                                 </Avatar>
                                                 <div className="ml-2">
-                                                    <p>{invoice.name}</p>
+                                                    <p className="font-semibold text-[#111928]">{invoice.name}</p>
                                                     <p>{invoice.id}</p>
                                                 </div>
                                             </TableCell>
@@ -403,7 +433,7 @@ const PageA1III = () => {
                                     { label: "User ID", value: "LO00001" },
                                 ].map((item, index) => (
                                     <div key={index}>
-                                        <Label className="text-xs mb-2 font-bold">
+                                        <Label className="text-xs mb-2 font-bold text-[#111928]">
                                             {item.label}
                                         </Label>
                                         <div className="text-xs mb-2 font-medium text-gray-500">
@@ -524,21 +554,21 @@ const PageA1III = () => {
                         <div className="grid w-full max-w-sm items-center gap-4">
                             <div className="flex items-center gap-4">
                                 <Checkbox id="terms" />
-                                <Label htmlFor="terms">
+                                <Label className="font-semibold text-[#111928]" htmlFor="terms">
                                     Review Loan Applications
                                 </Label>
                                 <ExternalLink className="inline-block text-[#4D69FF]  size-3" />
                             </div>
                             <div className="flex items-center gap-4">
                                 <Checkbox id="terms" />
-                                <Label htmlFor="terms">
+                                <Label className="font-semibold text-[#111928]" htmlFor="terms">
                                     Contact to Borrower
                                 </Label>
                                 <ExternalLink className="inline-block text-[#4D69FF]  size-3" />
                             </div>
                             <div className="flex items-center gap-4">
                                 <Checkbox id="terms" disabled />
-                                <Label htmlFor="terms">
+                                <Label className="font-semibold text-[#111928]" htmlFor="terms">
                                     Click to add new todo
                                 </Label>
                             </div>

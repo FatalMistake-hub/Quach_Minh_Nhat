@@ -52,7 +52,7 @@ const PageA1I = () => {
                     </header>
                     <Separator className="" />{" "}
                     <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-4 p-4 pt-0">
-                        <div className="col-span-2 gap-4  max-sm:col-span-1 flex flex-col p-4">
+                        <div className="col-span-2 gap-4  max-sm:col-span-1 flex flex-col py-4">
                             <span className="text-xl font-medium">
                                 <DessertIcon className="inline-block mr-2 size-6" />
                                 Description{" "}
